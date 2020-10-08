@@ -1857,10 +1857,7 @@ sub printGcode {
       }
       
       if(time()-$lst>3) {           # -- update printer display
-         printerSend($com,sprintf("M117 %d%% eta %s l#%d%s\n",100*$pos/$pos_tot,
-            #$eta > 36*60 ? sprintf("%.1fdy",$eta/60/24) : $eta > 60 ? sprintf("%.1fh",$eta/60) : int($eta)."m",
-            $eta_e ? ($eta_e > 36*60 ? sprintf("%.1fdy",$eta_e/60/24) : $eta_e > 60 ? sprintf("%.1fh",$eta_e/60) : int($eta_e)."m" ) : "-",
-            $layer,defined $process->{tool}?" T".$process->{tool}:""));
+         printerSend($com,sprintf("M73 P%d eta %s l#%d%s\n",100*$pos/$pos_tot));
          printerResponse($com);
          #printerSend($com,"M31\n");
          #printerResponse($com);
