@@ -1,4 +1,4 @@
-# Print3r
+# Print3r (edited for Ender3)
 
 ## Introduction
 
